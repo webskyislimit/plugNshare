@@ -1,0 +1,35 @@
+<div id="container_inner">
+  <div class="error_message">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+    <% end %>
+  </div>
+  <div class="right adminLogin">
+    <div class="rightHead"><span class="headColor">Sign In</span></div>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <table width="100%"  class="table">
+        <tr>
+          <td><%= f.label :email %></td>
+        </tr>
+        <tr>
+          <td class="padding_bottom">
+            <%= f.email_field :email, :autofocus => true, :class=>"text" %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= f.label :password %></td>
+        </tr>
+        <tr>
+          <td class="padding_bottom">
+            <%= f.password_field :password, :class=>"text" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="padding_bottom" colspan="2">
+            <%= f.submit "Sign in", :class=>"btn" %>
+          </td>
+        </tr>
+      </table>
+      <% end %>
+  </div>
+</div>
